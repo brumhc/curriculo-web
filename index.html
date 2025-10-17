@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Brum - Currículo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .profile-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            border: 4px solid white;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 1rem auto;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .certifications {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .contact-item {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            margin-right: 0.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .skill-item::before {
+            content: "▶";
+            margin-right: 0.5rem;
+            color: #3498db;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+        }
+
+        .section h2::before {
+            content: "🔧";
+            margin-right: 0.5rem;
+        }
+
+        .section h2.experience::before {
+            content: "📅";
+        }
+
+        .section h2.education::before {
+            content: "🎓";
+        }
+
+        .section h2.certifications::before {
+            content: "📄";
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .job {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .company {
+            font-size: 1.1rem;
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .job-period {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .job-location {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .job-responsibilities {
+            margin-top: 1rem;
+        }
+
+        .job-responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-responsibilities li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .job-responsibilities li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .education-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .education-institution {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .education-period {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .cert-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .cert-item strong {
+            color: #2c3e50;
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        .print-button::before {
+            content: "🖨️ ";
+            margin-right: 8px;
+        }
+
+        @media print {
+            .print-button {
+                display: none !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            @page {
+                margin: 0.5in;
+                size: A4;
+                /* Remove cabeçalhos e rodapés */
+                @top-left { content: ""; }
+                @top-center { content: ""; }
+                @top-right { content: ""; }
+                @bottom-left { content: ""; }
+                @bottom-center { content: ""; }
+                @bottom-right { content: ""; }
+            }
+            
+            body {
+                background: white !important;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                display: block !important;
+                grid-template-columns: none !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: none !important;
+                min-height: auto !important;
+                background: white !important;
+            }
+            
+            .sidebar {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 20px !important;
+                page-break-inside: avoid;
+                order: 1 !important;
+                background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
+                color: white !important;
+            }
+            
+            .main-content {
+                width: 100% !important;
+                padding: 20px !important;
+                margin: 0 !important;
+                order: 2 !important;
+                page-break-inside: avoid;
+            }
+            
+            .profile-section {
+                text-align: center !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .profile-img, .profile-placeholder {
+                margin: 0 auto 1rem auto !important;
+            }
+            
+            .job {
+                page-break-inside: avoid;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 2rem !important;
+            }
+            
+            .cert-grid {
+                display: block !important;
+            }
+            
+            .cert-item {
+                margin-bottom: 1rem !important;
+                page-break-inside: avoid;
+            }
+            
+            /* Melhora a qualidade da impressão */
+            html {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            /* Remove qualquer URL ou data que possa aparecer */
+            .no-print {
+                display: none !important;
+            }
+            
+            /* Garante que o PDF seja limpo */
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .print-button {
+                bottom: 10px;
+                right: 10px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="lucas_curriculo_Atual.jpeg" alt="Lucas Brum" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="profile-placeholder" style="display: none;">LB</div>
+                <div class="name">Lucas Brum</div>
+                <div class="title">Support Analyst - Infrastructure | Mainframe Specialist | Pentester Jr</div>
+                <div class="certifications">SC-300 | SC-900 | AZ-900 | Fortinet NSE3</div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>📞 Contato</h3>
+                <div class="contact-item">📍 Rua Alexandre Herculano, 237 APTO 22<br>Gonzaga<br>Santos - SP, CEP: 11050-031</div>
+                <div class="contact-item">📱 +55 13 97811-9494</div>
+                <div class="contact-item">📧 brumhc@hotmail.com</div>
+                <div class="contact-item">💼 linkedin.com/in/lucas-brum-95362372</div>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>🔹 Principais Skills</h3>
+                <div class="skill-item">English (Written and verbal)</div>
+                <div class="skill-item">Mainframe Systems (z/OS, JCL, CICS, COBOL, Db2)</div>
+                <div class="skill-item">Console and Batch Operations</div>
+                <div class="skill-item">HMC, SDSF, ISPF, NetView, OMVS</div>
+                <div class="skill-item">Cloud Computing (Azure)</div>
+                <div class="skill-item">Linux and Windows Server</div>
+                <div class="skill-item">Virtualization (VMware)</div>
+                <div class="skill-item">Web Development (HTML5, CSS, JS, PHP)</div>
+                <div class="skill-item">SQL, Oracle</div>
+                <div class="skill-item">Information Security (Pentesting, Firewalls, Zabbix)</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2>Summary</h2>
+                <div class="summary">
+                    With over 14 years of experience in the Information Technology field, I currently work at IBM as a Technical Support Analyst specializing in Mainframe systems. My responsibilities include the support and maintenance of mainframe environments and database servers. I have solid expertise in technologies such as <strong>z/OS, JCL, COBOL, CICS, and Db2</strong>, working within a global team (Japan, Europe, and the US). My skill set also includes network infrastructure, Linux, Zabbix, virtualization (VMware), cloud computing (Microsoft Azure), and information security (Microsoft SC-300). Additionally, I have experience in web development (HTML5, CSS, JavaScript, PHP) and databases (SQL, Oracle).
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="experience">Professional Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">IBM</div>
+                            <div class="job-title">Technical Support Analyst</div>
+                            <div class="job-location">São Paulo, Brazil</div>
+                        </div>
+                        <div class="job-period">March 2023 – Present</div>
+                    </div>
+                    <div class="job-responsibilities">
+                        <ul>
+                            <li>Support and maintenance of <strong>IBM Mainframe environments</strong>, including batch operations and console monitoring</li>
+                            <li>Acting as a <strong>hybrid analyst</strong>, working on both fronts: console operations and batch processing</li>
+                            <li>Daily responsibilities include <strong>JCL maintenance and updates</strong>, <strong>job restarts</strong>, and batch job initiation</li>
+                            <li>Proactive handling of <strong>system alerts for prevention</strong>, ensuring stability and minimizing downtime</li>
+                            <li>Execution of <strong>requests from global teams</strong> (Japan, Europe, US) for maintenance, patching, and updates</li>
+                            <li>Use of <strong>SDSF, ISPF, NetView, OMVS</strong>, and <strong>HMC</strong> for system management and <strong>IPL/reIPL</strong> operations</li>
+                            <li>Support for <strong>COBOL applications</strong> and <strong>Db2 databases</strong></li>
+                            <li>Collaboration in incident resolution and root cause analysis to ensure SLA compliance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">InterOp</div>
+                            <div class="job-title">Infrastructure Support Analyst</div>
+                            <div class="job-location">Porto Alegre, Brazil</div>
+                        </div>
+                        <div class="job-period">August 2021 – March 2023</div>
+                    </div>
+                    <div class="job-responsibilities">
+                        <ul>
+                            <li>Management of <strong>Windows Server AD</strong>, firewall configurations, and security policies</li>
+                            <li>Support analyst, management and updating of WINDOWS SERVER AD servers</li>
+                            <li>Firewall and information security management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">Commbox Tecnologia</div>
+                            <div class="job-title">IT Support Analyst</div>
+                            <div class="job-location">Porto Alegre, Brazil</div>
+                        </div>
+                        <div class="job-period">2020 – 2021</div>
+                    </div>
+                    <div class="job-responsibilities">
+                        <ul>
+                            <li>Remote and on-site IT support, infrastructure monitoring, and asset management</li>
+                            <li>Technical support and system maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">Linx</div>
+                            <div class="job-title">Senior Systems Support Analyst</div>
+                            <div class="job-location">Brazil</div>
+                        </div>
+                        <div class="job-period">January 2018 – November 2020</div>
+                    </div>
+                    <div class="job-responsibilities">
+                        <ul>
+                            <li>Support for big retail systems, POS configurations and maintenance in Linux (CentOS)</li>
+                            <li>Network and firewall configurations, database consultation and maintenance</li>
+                            <li>Database (SQL) and web tools (APACHE), Remote access via the "Airwatch" tool</li>
+                            <li>Technical support for mobile devices, and installation and configuration of the quick cash APP</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="company">Santa Casa de Misericórdia de Porto Alegre</div>
+                            <div class="job-title">Information Technology Technician</div>
+                            <div class="job-location">Porto Alegre, Brazil</div>
+                        </div>
+                        <div class="job-period">December 2014 – December 2017</div>
+                    </div>
+                    <div class="job-responsibilities">
+                        <ul>
+                            <li>Support analyst, management and updating of WINDOWS SERVER AD servers, databases</li>
+                            <li>Maintenance and installation of microcomputers and printers</li>
+                            <li>Technician responsible for the children's hospital, such as infrastructure, hospital software installations, multimedia facilities for conferences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="certifications">Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <strong>Microsoft Certified:</strong><br>
+                        Azure Fundamentals (AZ-900)
+                    </div>
+                    <div class="cert-item">
+                        <strong>Microsoft Certified:</strong><br>
+                        Identity and Access Administrator (SC-300)
+                    </div>
+                    <div class="cert-item">
+                        <strong>Microsoft Certified:</strong><br>
+                        Security, Compliance, and Identity Fundamentals (SC-900)
+                    </div>
+                    <div class="cert-item">
+                        <strong>Fortinet:</strong><br>
+                        NSE 3 Network Security Associate
+                    </div>
+                    <div class="cert-item">
+                        <strong>IBM:</strong><br>
+                        Cloud Security Engineer Essentials
+                    </div>
+                    <div class="cert-item">
+                        <strong>IBM:</strong><br>
+                        z/OS Mainframe Practitioner
+                    </div>
+                    <div class="cert-item">
+                        <strong>Interskill:</strong><br>
+                        Mainframe Systems Programmer – JCL Foundations 2.4
+                    </div>
+                    <div class="cert-item">
+                        <strong>IBM:</strong><br>
+                        Introduction to z/OS Commands and Panels on IBM Z
+                    </div>
+                    <div class="cert-item">
+                        <strong>Scrum:</strong><br>
+                        Foundation Professional Certificate (SFPC)
+                    </div>
+                    <div class="cert-item">
+                        <strong>AI Ethics:</strong><br>
+                        Trustworthy AI and AI Ethics
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="education">Education</h2>
+                <div class="education-item">
+                    <div class="education-title">Bachelor's in Information Systems</div>
+                    <div class="education-institution">Universidade Estácio de Sá</div>
+                    <div class="education-period">2020 – 2025</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">Associate Degree in Computer Networks</div>
+                    <div class="education-institution">Faculdade de Tecnologia Senac</div>
+                    <div class="education-period">2013 – 2016</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-title">Technical Degree in Information Technology</div>
+                    <div class="education-institution">QI Escolas e Faculdades</div>
+                    <div class="education-period">2010 – 2012</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="print-button" onclick="imprimirPDF()">Salvar como PDF</button>
+    
+    <script>
+        function imprimirPDF() {
+            // Força a ordem correta para impressão
+            const container = document.querySelector('.container');
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            
+            // Aplica estilos de impressão
+            document.body.style.backgroundColor = 'white';
+            container.style.display = 'block';
+            sidebar.style.order = '1';
+            mainContent.style.order = '2';
+            
+            // Alerta sobre configurações de impressão
+            if (window.showPrintInstructions !== false) {
+                alert('💡 DICA: Para um PDF perfeito sem rodapés:\n\n' +
+                      '1. Na janela de impressão que abrirá\n' +
+                      '2. Clique em "Mais configurações"\n' +
+                      '3. Desmarque "Cabeçalhos e rodapés"\n' +
+                      '4. Escolha "Salvar como PDF"\n\n' +
+                      '(Esta dica aparece apenas uma vez)');
+                window.showPrintInstructions = false;
+            }
+            
+            // Pequeno delay para garantir que os estilos sejam aplicados
+            setTimeout(() => {
+                window.print();
+            }, 100);
+        }
+        
+        // Adiciona atalho de teclado Ctrl+P (ou Cmd+P no Mac)
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                imprimirPDF();
+            }
+        });
+        
+        // Restaura layout após impressão (se necessário)
+        window.addEventListener('afterprint', function() {
+            const container = document.querySelector('.container');
+            container.style.display = 'grid';
+        });
+    </script>
+</body>
+</html>
