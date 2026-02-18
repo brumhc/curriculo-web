@@ -28,10 +28,10 @@
           <span class="material-symbols-outlined text-primary text-xl">location_on</span>
           <span>{{ contactInfo.location }}</span>
         </div>
-        <div class="flex items-center justify-center md:justify-start gap-2 hover:text-primary transition-colors cursor-pointer">
+        <a href="{{ contactInfo.linkedinUrl }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center md:justify-start gap-2 hover:text-primary transition-colors cursor-pointer">
           <span class="material-symbols-outlined text-primary text-xl">link</span>
           <span class="truncate">{{ contactInfo.linkedin }}</span>
-        </div>
+        </a>
       </div>
     </div>
   </header>

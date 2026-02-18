@@ -15,7 +15,8 @@ export class App {
     email: 'brumhc@hotmail.com',
     phone: '+55 13 97811-9494',
     location: 'Santos SP 11050031',
-    linkedin: 'linkedin.com/in/lucas-brum-95362372'
+    linkedin: 'linkedin.com/in/lucas-brum-95362372',
+    linkedinUrl: 'https://linkedin.com/in/lucas-brum-95362372'
   };
 
   summary = 'Mainframe Support Analyst at IBM with 14+ years of experience in enterprise IT environments, specializing in z/OS, batch processing, and system operations. Experienced in developing modern web systems, dashboards, and full stack applications using React, Angular, JavaScript, HTML5, CSS3, and IBM Carbon Design System. Strong ability to combine enterprise infrastructure expertise with modern frontend and full stack development to deliver scalable and efficient solutions.';
