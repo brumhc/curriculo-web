@@ -1,38 +1,50 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule],
+  imports: [NgOptimizedImage],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
   profilePhoto = 'perfil.png';
   
   contactInfo = {
     email: 'brumhc@hotmail.com',
-    phone: '+55 13 97811-9494',
-    location: 'Santos SP 11050031',
+    phone: '+351 931 478 418',
+    location: 'Porto, Portugal',
     linkedin: 'linkedin.com/in/lucas-brum-95362372',
     linkedinUrl: 'https://linkedin.com/in/lucas-brum-95362372'
   };
 
-  summary = 'Mainframe Support Analyst at IBM with 14+ years of experience in enterprise IT environments, specializing in z/OS, batch processing, and system operations. Experienced in developing modern web systems, dashboards, and full stack applications using React, Angular, JavaScript, HTML5, CSS3, and IBM Carbon Design System. Strong ability to combine enterprise infrastructure expertise with modern frontend and full stack development to deliver scalable and efficient solutions.';
+  summary = 'Infrastructure Support Analyst at CTW TechWorks supporting BMW Group environments in Porto, with 14+ years of experience in enterprise IT, infrastructure, mainframe operations, and software development. DevOps and Systems Analyst with hands-on experience in Docker, Kubernetes, databases, Linux, Azure, Git, monitoring, and enterprise systems. Experienced in analyzing, troubleshooting, and correcting backend and frontend code, integrating APIs and databases, and developing web applications using React, Angular, JavaScript, Node.js, and Supabase.';
 
   experiences = [
     {
-      period: '01/2023 - atual',
+      period: '06/2026 - Present',
+      title: 'Infrastructure Support Analyst | DevOps & Systems Analyst',
+      company: 'CTW TechWorks | BMW Group - Porto, Portugal',
+      responsibilities: [
+        'Provide infrastructure and application support for BMW Group logistics and enterprise environments, working within Operations / SRE / PreOps teams.',
+        'Monitor and troubleshoot services, microservices, applications, and infrastructure using Grafana, Prometheus, Loki, Azure, Kafka, and related observability tools.',
+        'Analyze incidents across systems and databases, identify root causes, and support reliable production operations and service availability.',
+        'Work with Docker, Kubernetes, Linux, Git, databases, APIs, and modern application environments as part of DevOps-oriented operational activities.',
+        'Analyze and troubleshoot backend and frontend code, configurations, integrations, and application behavior to resolve production issues and improve system reliability.'
+      ]
+    },
+    {
+      period: '01/2023 - 05/2026',
       title: 'Mainframe Support Analyst | Frontend & Full Stack Developer',
       company: 'IBM',
       responsibilities: [
-        'Support enterprise IBM z/OS environments ensuring high availability',
-        'Perform batch operations, job monitoring, and JCL maintenance',
-        'Develop dashboards and web applications to improve operational efficiency',
-        'Design modern frontend interfaces using React, JavaScript, HTML5, and CSS3',
-        'Participate in full stack development integrating frontend with backend and databases',
-        'Collaborate with global teams across Europe, Japan, and the United States'
+        'Supported enterprise IBM z/OS environments ensuring high availability.',
+        'Performed batch operations, job monitoring, and JCL maintenance.',
+        'Developed dashboards and web applications to improve operational efficiency.',
+        'Designed modern frontend interfaces using React, JavaScript, HTML5, and CSS3.',
+        'Participated in full stack development integrating frontend with backend and databases.',
+        'Collaborated with global teams across Europe, Japan, and the United States.'
       ]
     },
     {
@@ -53,8 +65,7 @@ export class App {
         'Remote and on-site IT support, infrastructure monitoring, and asset management',
         'Technical support and system maintenance',
         'Support and installation of MySQL and Oracle databases',
-        'Code analysis in the company\'s legacy systems',
-        'Training clients on how to use access control tools'
+        'Code analysis in the company\'s legacy systems'
       ]
     },
     {
@@ -63,7 +74,8 @@ export class App {
       company: 'Linx S.A',
       responsibilities: [
         'Support for big retail systems, POS configurations and maintenance in Linux (CentOS)',
-        'Network and firewall configurations, database consultation and maintenance'
+        'Network and firewall configurations, database consultation and maintenance',
+        'Training clients on how to use access control tools'
       ]
     },
     {
@@ -71,9 +83,9 @@ export class App {
       title: 'Information Technology Technician',
       company: 'Santa Casa de Misericórdia de Porto Alegre - Porto Alegre, RS',
       responsibilities: [
-        'Support analyst, management and updating of WINDOWS SERVER AD servers, databases',
+        'Support analyst, management and updating of Windows Server AD servers and databases.',
         'Maintenance and installation of microcomputers and printers',
-        'Technician responsible for the children\'s hospital, such as infrastructure, hospital software installations, multimedia facilities for conferences'
+        'Technician responsible for the children\'s hospital, including infrastructure, hospital software installations, and multimedia facilities for conferences.'
       ]
     }
   ];
@@ -99,33 +111,11 @@ export class App {
     }
   ];
 
-  skillsColumn1 = [
-    'z/OS',
-    'JCL',
-    'SDSF',
-    'ISPF',
-    'COBOL',
-    'Db2',
-    'React.js',
-    'Angular',
-    'JavaScript (ES6+)',
-    'HTML5',
-    'CSS3',
-    'IBM Carbon Design System'
-  ];
-
-  skillsColumn2 = [
-    'SQL',
-    'Supabase',
-    'REST APIs',
-    'JSON',
-    'Linux',
-    'Windows Server',
-    'VMware',
-    'Azure',
-    'Git',
-    'VS Code',
-    'Node.js'
+  skillGroups = [
+    { name: 'DevOps & Systems', skills: ['DevOps', 'Docker', 'Kubernetes', 'Azure', 'Git', 'Linux', 'Databases', 'VS Code', 'Windows Server', 'VMware', 'JSON'] },
+    { name: 'Mainframe & Backend', skills: ['z/OS', 'JCL', 'SDSF', 'ISPF', 'COBOL', 'Db2', 'SQL', 'Node.js', 'REST APIs', 'Supabase'] },
+    { name: 'Frontend', skills: ['React.js', 'Angular', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'IBM Carbon Design System'] },
+    { name: 'Code Analysis & Troubleshooting', skills: ['Backend Code Analysis', 'Frontend Code Analysis', 'Debugging', 'System Analysis', 'Integration Troubleshooting'] }
   ];
 
   certifications = [
@@ -133,7 +123,9 @@ export class App {
     'Microsoft Identity and Access Administrator (SC-300)',
     'Microsoft Security Fundamentals (SC-900)',
     'IBM z/OS Mainframe Practitioner',
-    'Fortinet NSE3 Network Security Associate'
+    'Fortinet NSE3 Network Security Associate',
+    'IBSEC - Gestão de Identidades Digitais na Era da IA',
+    'IBSEC - Inteligência de Ameaças na Era da IA'
   ];
 
   project = {
@@ -141,9 +133,5 @@ export class App {
     description: 'A full-featured grocery management application built to demonstrate modern full-stack capabilities. Designed for efficiency and scalability.'
   };
 
-  objective = 'Transitioning into a Frontend or Full Stack Developer role, utilizing my solid experience in enterprise systems and mainframe environments, combined with modern web development skills using React, JavaScript, Angular, HTML5, CSS3, and IBM Carbon Design System. My goal is to contribute to the development of modern and scalable applications while continuing to grow as a software developer in an international environment.';
-
-  downloadPDF() {
-    window.print();
-  }
+  objective = 'Growing as a DevOps and Systems professional by combining infrastructure operations, containerization, system analysis, databases, monitoring, and software development. Focused on bridging development and operations, improving reliability, troubleshooting complex technical issues, and contributing to scalable solutions in international environments.';
 }

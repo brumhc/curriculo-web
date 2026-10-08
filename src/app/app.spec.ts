@@ -18,6 +18,15 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, myapp');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Lucas Brum');
+  });
+
+  it('offers the supplied PDF and updated contact details', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('a[download]')?.getAttribute('href')).toBe('Lucas-Brum-CV.pdf');
+    expect(compiled.querySelector('a[href="tel:+351931478418"]')?.textContent).toContain('+351 931 478 418');
+    expect(compiled.querySelector('.experience.current')?.textContent).toContain('CTW TechWorks | BMW Group');
   });
 });

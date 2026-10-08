@@ -1,6 +1,9 @@
 [build]
-  command = "ng build"
+  command = "npm run build"
   publish = "dist/myapp/browser"
+
+[build.environment]
+  NODE_VERSION = "22"
 
 [[redirects]]
   from = "/*"
